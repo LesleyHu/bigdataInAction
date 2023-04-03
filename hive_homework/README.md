@@ -84,7 +84,7 @@ select stu.s_id, stu.s_name, stu.s_birth, stu.s_sex, course_01, course_02 from (
 ```
 
 ![img.png](img.png)
-
+<br/>
 2. 查询"01"课程比"02"课程成绩低的学生的信息及课程分数<br/>
 答：
 ```
@@ -92,7 +92,7 @@ select stu.s_id, stu.s_name, stu.s_birth, stu.s_sex, course_01, course_02 from (
 ```
 
 ![img_1.png](img_1.png)
-
+<br/>
 3. 查询平均成绩大于等于 60 分的同学的学生编号和学生姓名和平均成绩<br/>
 答：
 ```
@@ -100,7 +100,7 @@ select stu.s_id, stu.s_name, sc.avg_score from (select s_id, avg(s_score) avg_sc
 ```
 
 ![img_2.png](img_2.png)
-
+<br/>
 4. 查询平均成绩小于 60 分的同学的学生编号和学生姓名和平均成绩 (包括有成绩的和无成绩的)<br/>
 答：
 ```
@@ -108,7 +108,7 @@ select t.s_id as s_id, t.s_name as s_name ,avg(t.s_score) as avg_score from (sel
 ```
 
 ![img_3.png](img_3.png)
-
+<br/>
 5. 查询所有同学的学生编号、学生姓名、选课总数、所有课程的总成绩<br/>
 答：
 ```
@@ -116,7 +116,7 @@ select t.s_id as s_id, t.s_name as s_name, count(t.s_score) as course_cnt, sum(t
 ```
 
 ![img_4.png](img_4.png)
-
+<br/>
 6. 查询 " 李 " 姓老师的数量<br/>
 答：
 ```
@@ -124,7 +124,7 @@ select count(*) from teacher where t_name like '李%';
 ```
 
 ![img_5.png](img_5.png)
-
+<br/>
 7. 查询学过"张三"老师授课的同学的信息<br/>
 答：
 ```
@@ -132,7 +132,7 @@ select distinct stu.* from (select t_id from teacher where t_name = '张三') t 
 ```
 
 ![img_6.png](img_6.png)
-
+<br/>
 8. 查询没学过"张三"老师授课的同学的信息<br/>
 答：
 ```
@@ -140,7 +140,7 @@ select * from student where s_id not in (select distinct sc.s_id from teacher t 
 ```
 
 ![img_11.png](img_11.png)
-
+<br/>
 9. 查询学过编号为 "01" 并且也学过编号为 "02" 的课程的同学的信息<br/>
 答：
 ```
@@ -148,7 +148,7 @@ select b.* from (select s_id from score where c_id in ('01','02') group by s_id 
 ```
 
 ![img_7.png](img_7.png)
-
+<br/>
 10. 查询学过编号为 "01" 但是没有学过编号为 "02" 的课程的同学的信息<br/>
 答：
 ```
@@ -156,7 +156,7 @@ select stu.* from (select a.s_id as s_id from score a where a.c_id = '01' and no
 ```
 
 ![img_8.png](img_8.png)
-
+<br/>
 11. 查询没有学全所有课程的同学的信息<br/>
 答：
 ```
@@ -164,7 +164,7 @@ select stu.s_id, stu.s_name, stu.s_birth, stu.s_sex from student stu left join s
 ```
 
 ![img_9.png](img_9.png)
-
+<br/>
 12. 查询至少有一门课与学号为 "01" 的同学所学相同的同学的信息<br/>
 答：
 ```
@@ -172,7 +172,7 @@ select distinct stu.* from (select s_id from score  where c_id in (select c_id f
 ```
 
 ![img_10.png](img_10.png)
-
+<br/>
 13. 查询和"01"号的同学学习的课程完全相同的其他同学的信息<br/>
     答：
 ```
@@ -180,7 +180,7 @@ select stu.* from (select b.s_id as s_id from (select c_id from score a where a.
 ```
 
 ![img_14.png](img_14.png)
-
+<br/>
 14. 查询没学过 " 张三 " 老师讲授的任一门课程的学生姓名<br/>
 答：
 ```
@@ -188,7 +188,7 @@ select s_name from student where s_id not in (select distinct sc.s_id from teach
 ```
 
 ![img_13.png](img_13.png)
-
+<br/>
 15. 查询两门及其以上不及格课程的同学的学号，姓名及其平均成绩<br/>
 答：
 ```
@@ -196,3 +196,4 @@ select stu.*, t.s_score from (select s_id, avg(s_score) as s_score from score wh
 ```
 
 ![img_15.png](img_15.png)
+<br/>
